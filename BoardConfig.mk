@@ -24,12 +24,15 @@
 -include device/motorola/msm8960-common/BoardConfigCommon.mk
 
 # inherit from the proprietary version
--include vendor/motorola/xt907/BoardConfigVendor.mk
+-include vendor/motorola/xt901/BoardConfigVendor.mk
 
-LOCAL_PATH := device/motorola/xt907
+LOCAL_PATH := device/motorola/xt901
 
 # Use common resources
 TARGET_USES_MOTOROLA_MSM8960_COMMON_LIBLIGHT := true
+
+# Kernel Build
+TARGET_KERNEL_VARIANT_CONFIG := msm8960_solstice_defconfig
 
 # NFC
 BOARD_HAVE_NFC := true

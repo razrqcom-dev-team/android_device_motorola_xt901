@@ -18,9 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 $(call inherit-product, device/motorola/msm8960-common/msm8960.mk)
 
-LOCAL_PATH := device/motorola/xt907
+LOCAL_PATH := device/motorola/xt901
 
-# xt907 specific overlay
+# xt901 specific overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_LOCALES := en_US
@@ -39,36 +39,31 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=1 \
     ro.config.svdo=true \
-    persist.radio.eons.enabled= true \
-    ro.cdma.nbpcd=1 \
-    ro.cdma.home.operator.isnan=1 \
-    ro.telephony.gsm-routes-us-smsc=1 \
-    ro.cdma.otaspnumschema=SELC,1,80,99 \
     ro.cdma.data_retry_config=max_retries=infinite,0,0,10000,10000,100000,10000,10000,10000,10000,140000,540000,960000 \
-    ro.gsm.data_retry_config=default_randomization=2000,max_retries=infinite,1000,1000,80000,125000,485000,905000 \
-    ro.gsm.2nd_data_retry_config=max_retries=1,15000 \
     persist.radio.mode_pref_nv10=1 \
     persist.radio.vrte_logic=2 \
     persist.radio.0x9e_not_callname=1 \
     persist.radio.skip_data_check=1 \
-    persist.ril.max.crit.qmi.fails=4 \
-    ro.cdma.home.operator.numeric=310004 \
-    ro.cdma.home.operator.alpha=Verizon \
-    ro.cdma.homesystem=64,65,76,77,78,79,80,81,82,83 \
-    ro.telephony.default_network=10 \
+    ro.cdma.home.operator.numeric=311220 \
+    ro.telephony.default_network=8 \
     ro.mot.ignore_csim_appid=true \
     telephony.rilV7NeedCDMALTEPhone=true \
     ro.cdma.subscribe_on_ruim_ready=true \
-    persist.timed.enable=true
+    persist.timed.enable=true \
+    ro.cdma.ecmexittimer=600000 \
+    ro.cdma.subscription=0 \
+    cdma.operator.numeric=311580 \
+    gsm.sim.operator.numeric=311580 \
+    persist.radio.no_wait_for_card=1
 
 # IDC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/atmxt-i2c.idc:system/usr/idc/atmxt-i2c.idc \
     $(LOCAL_PATH)/idc/evfwd.idc:system/usr/idc/evfwd.idc \
     $(LOCAL_PATH)/idc/atmxt-i2c.idc:recovery/root/vendor/firmware/atmxt-i2c.idc \
-    vendor/motorola/xt907/proprietary/etc/firmware/atmxt-r2.tdat:recovery/root/vendor/firmware/atmxt-r2.tdat
+    $(LOCAL_PATH)/atmxt-r2.tdat:recovery/root/vendor/firmware/atmxt-r2.tdat
 
 $(call inherit-product, device/motorola/msm8960-common/keychars/keychars.mk)
 $(call inherit-product, device/motorola/msm8960-common/keylayout/keylayout.mk)
 $(call inherit-product, device/motorola/msm8960-common/modules/nfc/nfc.mk)
-$(call inherit-product, vendor/motorola/xt907/xt907-vendor.mk)
+$(call inherit-product, vendor/motorola/xt901/xt901-vendor.mk)

@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_xt907.mk
+    $(LOCAL_DIR)/full_xt901.mk
